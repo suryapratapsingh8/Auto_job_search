@@ -1,16 +1,17 @@
 {
-    "name": "A.P.J. Abdul Kalam Technical\nUniversity",
+    "name": "Surya Pratap Singh",
     "email": "suryapratapsingh08@gmail.com",
     "phone": "+91-8081151789",
     "education": "B.Tech",
     "skills": [
-        "Python",
-        "Sql",
+        "Langchain",
         "Javascript",
-        "Excel",
-        "Machine Learning",
         "Git",
-        "Langchain"
+        "Excel",
+        "Github",
+        "Sql",
+        "Machine Learning",
+        "Python"
     ],
-    "extracted_at": "2025-10-06T14:20:13.551987"
+    "extracted_at": "2025-10-06T21:38:10.120016"
 }
