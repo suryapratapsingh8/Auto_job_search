@@ -6,6 +6,7 @@ import re
 import spacy
 import json
 from datetime import datetime
+import sqlite3
 
 def extract_text(file_path: str) -> str:
     text = ""
@@ -190,3 +191,37 @@ def parse_resume(file_path: str, output_path: str = "output/parsed_resume.json")
     print("✅ Resume parsed successfully!")
     return resume_data
 
+
+
+def save_to_db(resume_data):
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    db_path = os.path.join(base_dir, "..", "data", "resume.db")
+    db_path = os.path.abspath(db_path)
+    os.makedirs(os.path.dirname(db_path), exist_ok=True)
+    conn = sqlite3.connect(db_path)
+    cur = conn.cursor()
+    cur.execute(
+        """
+        CREATE TABLE IF NOT EXISTS resume (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT, email TEXT, phone TEXT,
+            education TEXT, skills TEXT, extracted_at TEXT
+        )
+        """
+    )
+    cur.execute(
+        """
+        INSERT INTO resume (name,email,phone,education,skills,extracted_at)
+        VALUES (?,?,?,?,?,?)
+        """,
+        (
+            resume_data["name"],
+            resume_data["email"],
+            resume_data["phone"],
+            resume_data["education"],
+            ", ".join(resume_data["skills"]),
+            resume_data["extracted_at"],
+        ),
+    )
+    conn.commit()
+    conn.close()

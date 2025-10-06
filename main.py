@@ -1,5 +1,5 @@
 # main.py
-from modules.resume_parser import parse_resume
+from modules.resume_parser import parse_resume, save_to_db
 import os
 
 if __name__ == "__main__":
@@ -10,3 +10,5 @@ if __name__ == "__main__":
     data = parse_resume(resume_path, output_path=output_path)
     print(f"Saved JSON: {os.path.abspath(output_path)}")
     print(data)
+    save_to_db(data)
+    print("Saved to database")
