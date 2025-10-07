@@ -4,14 +4,14 @@
     "phone": "+91-8081151789",
     "education": "B.Tech",
     "skills": [
+        "Machine Learning",
         "Excel",
+        "Langchain",
+        "Github",
+        "Git",
         "Python",
         "Javascript",
-        "Git",
-        "Langchain",
-        "Sql",
-        "Github",
-        "Machine Learning"
+        "Sql"
     ],
-    "extracted_at": "2025-10-06T23:07:26.818550"
+    "extracted_at": "2025-10-07T16:08:38.995032"
 }
